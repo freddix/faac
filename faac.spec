@@ -1,7 +1,7 @@
 Summary:	Freeware Advanced Audio Codec
 Name:		faac
 Version:	1.28
-Release:	5
+Release:	6
 License:	LGPL v2.1+
 Group:		Applications/Sound
 Source0:	http://heanet.dl.sourceforge.net/faac/%{name}-%{version}.tar.gz
@@ -58,6 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -79,6 +81,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc docs/libfaac.html
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 %{_includedir}/*.h
 
